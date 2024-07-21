@@ -9,13 +9,12 @@ dp = Dispatcher(bot, storage=MemoryStorage())
 
 @dp.message_handler(commands=['start']) #Хэндлер для реагирования на команды
 async def start_message(message):
-    print("Бот запущен")  
-    await message.answer(f"Привет!, {message.from_user.username}.  Я бот помогающий твоему здоровью." )
+    print(f"Привет!, {message.from_user.username}.  Я бот помогающий твоему здоровью.")  
 
 @dp.message_handler()
 async def all_message(message):
-    print('Мы получили новое сообщение')
-    await message.answer('Введите команду /start, чтобы начать общение.')
+    print('Введите команду /start, чтобы начать общение.')
+    
 
 if __name__ == "__main__":
     executor.start_polling(dp, skip_updates=True)
